@@ -1,0 +1,11 @@
+services:
+  mongodb:
+    image: mongo:7
+    container_name: future-fs-02-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - crm_mongodb_data:/data/db
+volumes:
+  crm_mongodb_data:

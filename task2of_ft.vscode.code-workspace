@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": "../../.vscode"
+		},
+		{
+			"path": "../../OneDrive/Desktop"
+		}
+	],
+	"settings": {
+		"code-runner.clearPreviousOutput": true,
+		"code-runner.fileDirectoryAsCwd": true,
+		"code-runner.ignoreSelection": true,
+		"code-runner.runInTerminal": true,
+		"code-runner.saveAllFilesBeforeRun": true,
+		"code-runner.saveFileBeforeRun": true,
+		"editor.codeActions.triggerOnFocusChange": true
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"type": "jdk",
+				"request": "launch",
+				"name": "Launch Java App"
+			}
+		]
+	}
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lead Workspace | Northstar CRM</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="admin-page">
+  <main class="login-wrap" id="loginView">
+    <form class="login-card" id="loginForm">
+      <a class="brand" href="/">northstar<span>.</span></a>
+      <p class="eyebrow">PRIVATE WORKSPACE</p>
+      <h1>Welcome back</h1>
+      <p class="muted">Sign in to manage website enquiries and follow-ups.</p>
+      <label for="loginEmail">Admin email</label><input id="loginEmail" type="email" required autocomplete="username">
+      <label for="loginPassword">Password</label><input id="loginPassword" type="password" required autocomplete="current-password">
+      <button class="button" type="submit">Sign in</button>
+      <p class="feedback" id="loginFeedback" role="status" aria-live="polite"></p>
+      <a class="back-link" href="/">← Back to enquiry page</a>
+    </form>
+  </main>
+
+  <div class="dashboard hidden" id="dashboardView">
+    <aside class="sidebar">
+      <a class="brand" href="/">northstar<span>.</span></a>
+      <p class="side-label">WORKSPACE</p>
+      <a class="side-active" href="/admin">▦ &nbsp; Leads</a>
+      <div class="sidebar-bottom"><span class="avatar">A</span><div><strong id="adminName">Admin</strong><small>Administrator</small></div><button id="logoutButton" class="logout">↗</button></div>
+    </aside>
+    <main class="dash-main">
+      <header class="dash-header"><div><p class="eyebrow">OVERVIEW</p><h1>Lead workspace</h1><p class="muted">Manage enquiries, update statuses and plan follow-ups.</p></div><button class="button" id="addLeadButton">＋ Add lead</button></header>
+      <section class="stats">
+        <article class="stat-card"><span>Total leads</span><strong id="totalCount">0</strong><small>All enquiries</small></article>
+        <article class="stat-card"><span>New</span><strong id="newCount">0</strong><small>Awaiting contact</small></article>
+        <article class="stat-card"><span>Contacted</span><strong id="contactedCount">0</strong><small>In conversation</small></article>
+        <article class="stat-card"><span>Converted</span><strong id="convertedCount">0</strong><small>Successfully converted</small></article>
+      </section>
+      <section class="leads-panel">
+        <div class="panel-heading"><div><h2>All leads</h2><p class="muted">Search and manage your client enquiries.</p></div><div class="filters"><input id="searchInput" type="search" placeholder="Search name or email"><select id="statusFilter"><option value="">All statuses</option><option value="new">New</option><option value="contacted">Contacted</option><option value="converted">Converted</option></select></div></div>
+        <div class="table-wrap"><table><thead><tr><th>CLIENT</th><th>SOURCE</th><th>STATUS</th><th>FOLLOW-UP</th><th>ADDED</th><th></th></tr></thead><tbody id="leadRows"><tr><td colspan="6" class="empty">Loading leads…</td></tr></tbody></table></div>
+        <p class="feedback" id="dashboardFeedback" role="status" aria-live="polite"></p>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="leadDialog" class="modal">
+    <form id="leadForm" method="dialog" class="modal-card">
+      <div class="modal-head"><div><p class="eyebrow">CLIENT DETAILS</p><h2 id="dialogTitle">Add a lead</h2></div><button type="button" class="close-button" id="closeDialog" aria-label="Close">×</button></div>
+      <label for="leadName">Name</label><input id="leadName" required minlength="2" maxlength="100">
+      <label for="leadEmail">Email</label><input id="leadEmail" type="email" required maxlength="254">
+      <label for="leadPhone">Phone</label><input id="leadPhone" maxlength="30">
+      <label for="leadSource">Source</label><input id="leadSource" maxlength="80" value="Manually added">
+      <label for="leadMessage">Message / requirement</label><textarea id="leadMessage" rows="3" maxlength="3000"></textarea>
+      <div class="modal-actions"><button type="button" class="button button-light" id="cancelLead">Cancel</button><button class="button" type="submit">Save lead</button></div>
+      <p class="feedback" id="leadFormFeedback" role="status"></p>
+    </form>
+  </dialog>
+
+  <dialog id="detailDialog" class="modal">
+    <div class="modal-card">
+      <div class="modal-head"><div><p class="eyebrow">LEAD DETAILS</p><h2 id="detailName">Lead</h2></div><button type="button" class="close-button" id="closeDetail" aria-label="Close">×</button></div>
+      <p class="muted" id="detailEmail"></p><p id="detailMessage"></p>
+      <div class="detail-grid"><div><label for="detailStatus">Status</label><select id="detailStatus"><option value="new">New</option><option value="contacted">Contacted</option><option value="converted">Converted</option></select></div><div><label for="detailFollowUp">Follow-up date</label><input id="detailFollowUp" type="date"></div></div>
+      <button class="button" id="saveDetails">Save changes</button>
+      <hr>
+      <h3>Notes & follow-ups</h3><div id="notesList" class="notes-list"></div>
+      <label for="newNote">Add a note</label><textarea id="newNote" rows="3" maxlength="1000" placeholder="Record a call, discussion or next step"></textarea>
+      <button class="button button-light" id="addNoteButton">Add note</button>
+      <p class="feedback" id="detailFeedback" role="status"></p>
+    </div>
+  </dialog>
+  <script src="/admin.js"></script>
+</body>
+</html>

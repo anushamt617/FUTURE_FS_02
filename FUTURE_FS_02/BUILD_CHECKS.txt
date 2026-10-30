@@ -1,0 +1,17 @@
+Node syntax checks:
+server.js: PASS 
+public/admin.js: PASS 
+public/contact.js: PASS 
+
+Feature presence checks:
+public contact form endpoint: PASS
+admin authentication: PASS
+lead listing: PASS
+lead creation: PASS
+lead update: PASS
+lead deletion: PASS
+notes: PASS
+follow-up date: PASS
+frontend dashboard: PASS
+
+Note: MongoDB-backed integration tests require installing npm dependencies and starting a MongoDB instance.
